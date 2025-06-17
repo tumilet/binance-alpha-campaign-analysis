@@ -1,65 +1,56 @@
-# binance-alpha-campaign-analysis
-Analysis of Binance Alpha's trading campaigns
-
 # 📊 Binance Alpha Campaign Analysis
 
-**Strategic analysis of Binance Alpha's $18.5M campaign orchestration and PancakeSwap ecosystem impact**
+**Strategic analysis of Binance Alpha's $18.5M campaign orchestration**
 
-![Campaign Timeline](https://via.placeholder.com/800x400/667eea/ffffff?text=Campaign+Timeline+Visualization)
+## 🚀 Live Visualizations
 
-## 🚀 Key Findings
+### 📈 [Campaign Timeline](./campaign-timeline.html)
+Interactive timeline showing campaign overlaps, reward flows, and strategic timing across 52 days.
 
-- **13 overlapping campaigns** worth $18.5M over 54 days
-- **635% PancakeSwap volume surge** ($1.08B → $7.94B daily average)
-- **183% CAKE burn acceleration** ($410K → $1.16M daily average)
-- **Strategic 14-day cycles** maintaining 3-7 simultaneous active campaigns
+### 📋 [Campaign Summary Table](./campaign-summary-table.html) 
+Complete breakdown of all 13 campaigns with detailed timing, rewards, and strategic notes.
+
+## 🎯 Key Findings
+
+- **$18.5M total rewards** across 13 strategically timed campaigns
+- **14-day consistent duration** with seamless overlapping transitions
+- **3-7 simultaneous active campaigns** maintained at all times
 - **$7.2M peak simultaneous rewards** during June 6-16 period
+- **Zero engagement gaps** through precise campaign coordination
 
-## 📁 Files
+## 📊 Strategic Innovation
 
-### Visualizations
-- **`campaign-timeline.html`** - Interactive timeline showing campaign overlaps and reward flows
-- **`campaign-summary-table.html`** - Complete breakdown of all 13 campaigns with timing and status
+Binance Alpha deployed sophisticated **infrastructure-level ecosystem development** rather than traditional promotional campaigns. The strategic timing creates natural momentum cycles where ending campaigns are immediately replaced by new launches, maintaining continuous engagement without gaps.
 
-### Data
-- **`pancakeswap-data.csv`** - 50 days of PancakeSwap trading data (April 29 - June 17, 2025)
+This represents a new paradigm for DeFi collaboration where coordinated operations maximize ecosystem value while strengthening overall infrastructure.
 
 ## 🖥️ How to Use
 
-### Option 1: Direct Download
+### Option 1: Direct View
+Click the visualization links above to view in GitHub
+
+### Option 2: Download & Run Locally
 1. Download the HTML files
 2. Double-click to open in your browser
 3. No installation required - works offline
 
-### Option 2: GitHub Pages (Live Website)
-- **Timeline**: [https://yourusername.github.io/binance-alpha-campaign-analysis/campaign-timeline.html](https://yourusername.github.io/binance-alpha-campaign-analysis/campaign-timeline.html)
-- **Summary Table**: [https://yourusername.github.io/binance-alpha-campaign-analysis/campaign-summary-table.html](https://yourusername.github.io/binance-alpha-campaign-analysis/campaign-summary-table.html)
+### Option 3: GitHub Pages (Live Website)
+- **Timeline**: `https://tumilet.github.io/binance-alpha-campaign-analysis/campaign-timeline.html`
+- **Summary**: `https://tumilet.github.io/binance-alpha-campaign-analysis/campaign-summary-table.html`
 
-## 📈 Analysis Summary
+## 📋 Campaign Portfolio
 
-### Campaign Strategy
-Binance Alpha deployed a sophisticated **infrastructure-level ecosystem development** approach rather than traditional promotional campaigns. The strategic timing creates seamless transitions without engagement gaps, maintaining continuous momentum through precisely orchestrated overlaps.
-
-### PancakeSwap Impact
-The campaign coordination generated massive ecosystem benefits:
-- **Volume explosion**: From $1.08B to $7.94B daily average (635% increase)
-- **Peak performance**: $13.40B volume on June 3, $2.27M CAKE burns on June 10
-- **Sustained elevation**: 42 days of 7.4x baseline performance
-
-### Strategic Innovation
-This represents a new paradigm for DeFi collaboration where coordinated operations maximize value extraction for both platforms while strengthening the overall ecosystem infrastructure.
-
-## 📊 Data Sources
-
-- Binance Alpha campaign data (May 7 - June 30, 2025)
-- PancakeSwap trading metrics (April 29 - June 17, 2025)
-- Analysis conducted June 17, 2025
+| Phase | Campaigns | Total Rewards | Period |
+|-------|-----------|---------------|---------|
+| **Foundation** | B2, AIOT, MYX, ZKJ | $3.5M | May 7-21 |
+| **Expansion** | BANK, AGT, REX, PUFFER, FHE | $4.2M | May 22 - Jun 5 |
+| **Peak** | 7 simultaneous campaigns | $7.2M | Jun 6-16 |
+| **Active** | 6 ongoing campaigns | $5.1M | Jun 17+ |
 
 ## 🔗 Related
 
-- [Original Tweet Analysis](https://twitter.com/yourusername/status/...)
 - [Binance Alpha](https://www.binance.com/en/alpha)
-- [PancakeSwap](https://pancakeswap.finance/)
+- [Original Analysis Tweet](https://x.com/tumilett/status/1934871171071111237)
 
 ---
-*Analysis by [Your Name] | June 2025*
+*Analysis conducted June 17, 2025*
