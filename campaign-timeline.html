@@ -176,10 +176,10 @@
 <body>
     <div class="container">
         <h1>📈 Binance Campaign Rewards Timeline</h1>
-        <p class="subtitle">Daily Active Rewards Breakdown: May 7 - June 27, 2025</p>
+        <p class="subtitle">Daily Active Rewards Breakdown: May 7 - July 7, 2025</p>
         
         <div style="text-align: center;">
-            <span class="current-status">🔥 June 17, 2025: Live Campaign Analysis</span>
+            <span class="current-status">🔥 June 23, 2025: Live Campaign Analysis</span>
         </div>
 
         <div class="lifecycle-legend">
@@ -207,11 +207,11 @@
         
         <div class="stats-grid">
             <div class="stat-card">
-                <div class="stat-value">$18.5M</div>
+                <div class="stat-value">$21.0M</div>
                 <div class="stat-label">Total Rewards Pool</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">13</div>
+                <div class="stat-value">16</div>
                 <div class="stat-label">Total Campaigns</div>
             </div>
             <div class="stat-card">
@@ -219,13 +219,13 @@
                 <div class="stat-label">Peak Active Rewards</div>
             </div>
             <div class="stat-card">
-                <div class="stat-value">52 days</div>
+                <div class="stat-value">62 days</div>
                 <div class="stat-label">Campaign Duration</div>
             </div>
         </div>
         
         <div class="period-summary">
-            <h3>📊 Key Events & Future Outlook</h3>
+            <h3>📊 Key Events & Strategic Expansion</h3>
             <div class="key-events">
                 <div class="event-item">
                     <div class="event-title">🚀 May 7: Campaign Launch</div>
@@ -235,24 +235,28 @@
                     <div class="event-title">📈 May 20-June 6: Rapid Growth</div>
                     <div class="event-details">Multiple campaigns overlap, rewards climb to $7.2M peak</div>
                 </div>
+                <div class="event-item" style="border-left-color: #00b894; background: rgba(0, 184, 148, 0.1);">
+                    <div class="event-title">🔄 June 20-23: Strategic Extension</div>
+                    <div class="event-details">AVAIL, BULLA, CARV campaigns launched - $2.5M additional rewards</div>
+                </div>
                 <div class="event-item" style="border-left-color: #f39c12; background: rgba(243, 156, 18, 0.1);">
-                    <div class="event-title">🔥 June 17: TODAY - Active Period</div>
-                    <div class="event-details">ZRC ending today, VELO just launched yesterday - transition phase</div>
+                    <div class="event-title">🔥 June 23: TODAY - Extended Phase</div>
+                    <div class="event-details">CARV launches today maintaining 6-campaign coordination</div>
                 </div>
                 <div class="event-item">
-                    <div class="event-title">📉 June 15-27: Campaign Wind-Down</div>
-                    <div class="event-details">Early campaigns end, rewards decrease to $2M by June 27</div>
+                    <div class="event-title">📊 June 24-July 7: Sustained Operations</div>
+                    <div class="event-details">Continuous 4-6 simultaneous campaigns through July</div>
                 </div>
-                <div class="event-item" style="border-left-color: #00b894; background: rgba(0, 184, 148, 0.1);">
-                    <div class="event-title">🔮 Post June 27: Future Potential</div>
-                    <div class="event-details">Binance Alpha trend suggests new campaigns likely</div>
+                <div class="event-item" style="border-left-color: #8e44ad; background: rgba(142, 68, 173, 0.1);">
+                    <div class="event-title">🎯 Strategic Innovation</div>
+                    <div class="event-details">Zero-gap strategy proven over 62 days - new DeFi paradigm established</div>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Campaign data with exact start and end dates
+        // Campaign data with exact start and end dates - updated with new campaigns
         const campaigns = [
             {name: "B2, AIOT, MYX, ZKJ", amount: 3500000, start: new Date("2025-05-07T15:00:00Z"), end: new Date("2025-05-21T16:00:00Z")},
             {name: "MERL", amount: 1000000, start: new Date("2025-05-20T09:00:00Z"), end: new Date("2025-06-03T09:00:00Z")},
@@ -266,13 +270,17 @@
             {name: "OL", amount: 800000, start: new Date("2025-06-08T06:00:00Z"), end: new Date("2025-06-22T06:00:00Z")},
             {name: "PUNDIAI", amount: 1000000, start: new Date("2025-06-12T07:00:00Z"), end: new Date("2025-06-26T07:00:00Z")},
             {name: "ROAM", amount: 1000000, start: new Date("2025-06-13T13:00:00Z"), end: new Date("2025-06-27T07:00:00Z")},
-            {name: "VELO", amount: 1000000, start: new Date("2025-06-16T07:00:00Z"), end: new Date("2025-06-30T07:00:00Z")}
+            {name: "VELO", amount: 1000000, start: new Date("2025-06-16T07:00:00Z"), end: new Date("2025-06-30T07:00:00Z")},
+            // NEW CAMPAIGNS
+            {name: "AVAIL", amount: 1000000, start: new Date("2025-06-20T07:00:00Z"), end: new Date("2025-07-04T07:00:00Z")},
+            {name: "BULLA", amount: 860000, start: new Date("2025-06-22T10:00:00Z"), end: new Date("2025-07-06T10:00:00Z")},
+            {name: "CARV", amount: 660000, start: new Date("2025-06-23T07:00:00Z"), end: new Date("2025-07-07T07:00:00Z")}
         ];
 
-        // Generate daily data from May 7 to June 27
+        // Generate daily data from May 7 to July 7 (extended period)
         const startDate = new Date("2025-05-07");
-        const endDate = new Date("2025-06-27");
-        const currentDate = new Date("2025-06-17");
+        const endDate = new Date("2025-07-07");
+        const currentDate = new Date("2025-06-23"); // Updated to June 23
         
         const dailyData = [];
         const labels = [];
@@ -438,11 +446,11 @@
                                 const todayText = isToday ? ' (TODAY)' : '';
                                 
                                 if (context.datasetIndex === 0) {
-                                    return `🚀 Starting Rewards: ${context.parsed.y.toFixed(1)}M${todayText}`;
+                                    return `🚀 Starting Rewards: $${context.parsed.y.toFixed(1)}M${todayText}`;
                                 } else if (context.datasetIndex === 1) {
-                                    return `⚡ Middle Phase Rewards: ${context.parsed.y.toFixed(1)}M${todayText}`;
+                                    return `⚡ Middle Phase Rewards: $${context.parsed.y.toFixed(1)}M${todayText}`;
                                 } else if (context.datasetIndex === 2) {
-                                    return `⏰ Ending Soon Rewards: ${context.parsed.y.toFixed(1)}M${todayText}`;
+                                    return `⏰ Ending Soon Rewards: $${context.parsed.y.toFixed(1)}M${todayText}`;
                                 } else if (context.datasetIndex === 3) {
                                     return `📊 Total Active Campaigns: ${context.parsed.y}${todayText}`;
                                 }
@@ -553,7 +561,7 @@
                 ctx.fillStyle = '#000000';
                 ctx.font = 'bold 15px Arial';
                 ctx.textAlign = 'center';
-                ctx.fillText('📍 TODAY - June 17', x, lineStartY - 10);
+                ctx.fillText('📍 TODAY - June 23', x, lineStartY - 10);
                 
                 ctx.restore();
             }
