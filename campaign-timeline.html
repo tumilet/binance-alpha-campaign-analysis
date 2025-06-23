@@ -179,7 +179,7 @@
         <p class="subtitle">Daily Active Rewards Breakdown: May 7 - July 7, 2025</p>
         
         <div style="text-align: center;">
-            <span class="current-status">🔥 June 23, 2025: Live Campaign Analysis</span>
+            <span class="current-status" id="currentStatus">🔥 Loading current date...</span>
         </div>
 
         <div class="lifecycle-legend">
@@ -280,7 +280,11 @@
         // Generate daily data from May 7 to July 7 (extended period)
         const startDate = new Date("2025-05-07");
         const endDate = new Date("2025-07-07");
-        const currentDate = new Date("2025-06-23"); // Updated to June 23
+        let currentDate = new Date(); // Use actual current date
+        
+        // Ensure we're working with a valid date within our range
+        if (currentDate < startDate) currentDate = startDate;
+        if (currentDate > endDate) currentDate = endDate;
         
         const dailyData = [];
         const labels = [];
@@ -353,10 +357,54 @@
 
         const ctx = document.getElementById('rewardsChart').getContext('2d');
 
-        // Create point colors - highlight current date
+        // Function to update current date highlighting
+        function updateCurrentDateHighlight() {
+            const now = new Date();
+            
+            // Update status display
+            const statusElement = document.getElementById('currentStatus');
+            const dateOptions = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            };
+            statusElement.textContent = `🔥 ${now.toLocaleDateString('en-US', dateOptions)}: Live Campaign Analysis`;
+            
+            // Find current date index in our data
+            let newCurrentDateIndex = -1;
+            for (let i = 0; i < dailyData.length; i++) {
+                if (dailyData[i].date.toDateString() === now.toDateString()) {
+                    newCurrentDateIndex = i;
+                    break;
+                }
+            }
+            
+            // Update current date tracking
+            currentDateIndex = newCurrentDateIndex;
+            
+            // Update point colors for the line chart
+            const pointColors = dailyData.map((d, index) => {
+                if (index === currentDateIndex) return '#f39c12'; // Orange for today
+                return '#667eea'; // Default blue
+            });
+            
+            const pointSizes = dailyData.map((d, index) => {
+                if (index === currentDateIndex) return 10; // Larger for today
+                return 6; // Default size
+            });
+            
+            // Update the chart data
+            if (chart && chart.data && chart.data.datasets && chart.data.datasets[3]) {
+                chart.data.datasets[3].pointBackgroundColor = pointColors;
+                chart.data.datasets[3].pointRadius = pointSizes;
+                chart.update('none'); // Update without animation for smooth real-time updates
+            }
+        }
+
+        // Create point colors - highlight current date initially
         const pointColors = dailyData.map(d => d.isToday ? '#f39c12' : '#667eea');
-        const pointSizes = dailyData.map(d => d.isToday ? 10 : 4);
-        const pointBorderWidths = dailyData.map(d => d.isToday ? 4 : 2);
+        const pointSizes = dailyData.map(d => d.isToday ? 10 : 6);
 
         const chart = new Chart(ctx, {
             type: 'bar',
@@ -395,7 +443,7 @@
                     pointBackgroundColor: pointColors,
                     pointBorderColor: '#fff',
                     pointBorderWidth: 3,
-                    pointRadius: 6,
+                    pointRadius: pointSizes,
                     pointHoverRadius: 10,
                     yAxisID: 'y1',
                     order: 0
@@ -530,6 +578,103 @@
                 }
             }
         });
+
+        // Start real-time updates
+        updateCurrentDateHighlight(); // Initial update
+        
+        // Update every minute for current date tracking
+        setInterval(updateCurrentDateHighlight, 60000);
+        
+        // Update campaign status every 30 minutes
+        setInterval(() => {
+            // Recalculate campaign statuses based on current time
+            const now = new Date();
+            
+            // Update tooltip data with current campaign statuses
+            dailyData.forEach((dataPoint, index) => {
+                const activeCampaignsToday = campaigns.filter(campaign => {
+                    const pointDate = dataPoint.date;
+                    return pointDate >= campaign.start && pointDate <= campaign.end;
+                });
+                
+                // Refresh lifecycle calculations
+                let startingRewards = 0, middleRewards = 0, endingRewards = 0;
+                
+                activeCampaignsToday.forEach(campaign => {
+                    const daysFromStart = Math.floor((dataPoint.date - campaign.start) / (1000 * 60 * 60 * 24));
+                    const daysToEnd = Math.floor((campaign.end - dataPoint.date) / (1000 * 60 * 60 * 24));
+                    const rewardAmount = campaign.amount / 1000000;
+                    
+                    if (daysFromStart <= 3) {
+                        startingRewards += rewardAmount;
+                    } else if (daysToEnd <= 3) {
+                        endingRewards += rewardAmount;
+                    } else {
+                        middleRewards += rewardAmount;
+                    }
+                });
+                
+                // Update data arrays
+                if (chart.data.datasets[0]) chart.data.datasets[0].data[index] = startingRewards;
+                if (chart.data.datasets[1]) chart.data.datasets[1].data[index] = middleRewards;
+                if (chart.data.datasets[2]) chart.data.datasets[2].data[index] = endingRewards;
+            });
+            
+            chart.update('none');
+        }, 30 * 60 * 1000); // Every 30 minutes
+
+        // Add manual refresh button functionality
+        function addRefreshButton() {
+            const container = document.querySelector('.container');
+            const refreshButton = document.createElement('button');
+            refreshButton.innerHTML = '🔄 Refresh Data';
+            refreshButton.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #00b894, #00a085);
+                color: white;
+                border: none;
+                padding: 12px 20px;
+                border-radius: 25px;
+                font-weight: 600;
+                cursor: pointer;
+                box-shadow: 0 8px 20px rgba(0, 184, 148, 0.3);
+                z-index: 1000;
+                transition: transform 0.2s ease;
+            `;
+            
+            refreshButton.addEventListener('mouseenter', () => {
+                refreshButton.style.transform = 'translateY(-2px)';
+            });
+            
+            refreshButton.addEventListener('mouseleave', () => {
+                refreshButton.style.transform = 'translateY(0)';
+            });
+            
+            refreshButton.addEventListener('click', () => {
+                // Animate button
+                refreshButton.style.transform = 'rotate(360deg)';
+                setTimeout(() => {
+                    refreshButton.style.transform = 'translateY(0)';
+                }, 600);
+                
+                // Force update
+                updateCurrentDateHighlight();
+                
+                // Show feedback
+                const originalText = refreshButton.innerHTML;
+                refreshButton.innerHTML = '✅ Updated!';
+                setTimeout(() => {
+                    refreshButton.innerHTML = originalText;
+                }, 2000);
+            });
+            
+            document.body.appendChild(refreshButton);
+        }
+        
+        // Add refresh button when page loads
+        addRefreshButton();
 
         // Add vertical line plugin for current date
         const verticalLinePlugin = {
